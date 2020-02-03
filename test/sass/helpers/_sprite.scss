@@ -1,0 +1,134 @@
+// SCSS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home {
+//   width: $icon-home-width;
+// }
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path;
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites;
+$icon-arrow-name: 'icon-arrow';
+$icon-arrow-x: 33px;
+$icon-arrow-y: 22px;
+$icon-arrow-offset-x: -33px;
+$icon-arrow-offset-y: -22px;
+$icon-arrow-width: 8px;
+$icon-arrow-height: 5px;
+$icon-arrow-total-width: 43px;
+$icon-arrow-total-height: 38px;
+$icon-arrow-image: 'sprite.png';
+$icon-arrow: (33px, 22px, -33px, -22px, 8px, 5px, 43px, 38px, 'sprite.png', 'icon-arrow', );
+$icon-cart-name: 'icon-cart';
+$icon-cart-x: 0px;
+$icon-cart-y: 0px;
+$icon-cart-offset-x: 0px;
+$icon-cart-offset-y: 0px;
+$icon-cart-width: 21px;
+$icon-cart-height: 20px;
+$icon-cart-total-width: 43px;
+$icon-cart-total-height: 38px;
+$icon-cart-image: 'sprite.png';
+$icon-cart: (0px, 0px, 0px, 0px, 21px, 20px, 43px, 38px, 'sprite.png', 'icon-cart', );
+$icon-search-name: 'icon-search';
+$icon-search-x: 18px;
+$icon-search-y: 22px;
+$icon-search-offset-x: -18px;
+$icon-search-offset-y: -22px;
+$icon-search-width: 13px;
+$icon-search-height: 13px;
+$icon-search-total-width: 43px;
+$icon-search-total-height: 38px;
+$icon-search-image: 'sprite.png';
+$icon-search: (18px, 22px, -18px, -22px, 13px, 13px, 43px, 38px, 'sprite.png', 'icon-search', );
+$icon-user-name: 'icon-user';
+$icon-user-x: 0px;
+$icon-user-y: 22px;
+$icon-user-offset-x: 0px;
+$icon-user-offset-y: -22px;
+$icon-user-width: 16px;
+$icon-user-height: 16px;
+$icon-user-total-width: 43px;
+$icon-user-total-height: 38px;
+$icon-user-image: 'sprite.png';
+$icon-user: (0px, 22px, 0px, -22px, 16px, 16px, 43px, 38px, 'sprite.png', 'icon-user', );
+$icon-wishlist-name: 'icon-wishlist';
+$icon-wishlist-x: 23px;
+$icon-wishlist-y: 0px;
+$icon-wishlist-offset-x: -23px;
+$icon-wishlist-offset-y: 0px;
+$icon-wishlist-width: 20px;
+$icon-wishlist-height: 19px;
+$icon-wishlist-total-width: 43px;
+$icon-wishlist-total-height: 38px;
+$icon-wishlist-image: 'sprite.png';
+$icon-wishlist: (23px, 0px, -23px, 0px, 20px, 19px, 43px, 38px, 'sprite.png', 'icon-wishlist', );
+$spritesheet-width: 43px;
+$spritesheet-height: 38px;
+$spritesheet-image: 'sprite.png';
+$spritesheet-sprites: ($icon-arrow, $icon-cart, $icon-search, $icon-user, $icon-wishlist, );
+$spritesheet: (43px, 38px, 'sprite.png', $spritesheet-sprites, );
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home {
+//   @include sprite-width($icon-home);
+// }
+//
+// .icon-email {
+//   @include sprite($icon-email);
+// }
+//
+// Example usage in HTML:
+//
+// `display: block` sprite:
+// <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//
+// // CSS
+// .icon {
+//   display: inline-block;
+// }
+//
+// // HTML
+// <i class="icon icon-home"></i>
+@mixin sprite-width($sprite) {
+  width: nth($sprite, 5);
+}
+
+@mixin sprite-height($sprite) {
+  height: nth($sprite, 6);
+}
+
+@mixin sprite-position($sprite) {
+  $sprite-offset-x: nth($sprite, 3);
+  $sprite-offset-y: nth($sprite, 4);
+  background-position: $sprite-offset-x  $sprite-offset-y;
+}
+
+@mixin sprite-image($sprite) {
+  $sprite-image: nth($sprite, 9);
+  background-image: url(#{$sprite-image});
+}
+
+@mixin sprite($sprite) {
+  @include sprite-image($sprite);
+  @include sprite-position($sprite);
+  @include sprite-width($sprite);
+  @include sprite-height($sprite);
+}
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SCSS
+//
+// @include sprites($spritesheet-sprites);
+@mixin sprites($sprites) {
+  @each $sprite in $sprites {
+    $sprite-name: nth($sprite, 10);
+    .#{$sprite-name} {
+      @include sprite($sprite);
+    }
+  }
+}
