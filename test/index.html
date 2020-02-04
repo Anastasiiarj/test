@@ -17,13 +17,18 @@
     <header class="header">
         <div class="container">
             <div class="header-top">
+                <div class="hamburger hamburger--spin">
+                    <div class="hamburger-box">
+                        <div class="hamburger-inner"></div>
+                    </div>
+                </div>
                 <div class="logo">
                     <a href="#"><strong>quantum</strong></a>
                 </div>
                 <form action="/" class="form">
                     <div class="form__group">
                         <input type="text" class="form__search" placeholder="Search goods">
-                        <div class="form__select hidden-md">
+                        <div class="form__select hidden-lg">
                             <select name="category" id="">
                                 <option value="0">Category</option>
                                 <option value="1">Apple</option>
@@ -36,70 +41,76 @@
                 <ul class="inline-list">
                     <li><a href="#">
                         <span class="inline-list__icon inline-list__cart"></span>
-                        <span class="hidden-md">2 Items</span>
+                        <span class="hidden-lg">2 Items</span>
                     </a></li>
                     <li><a href="#">
                         <span class="inline-list__icon inline-list__wishlist"></span>
-                        <span class="hidden-md">Wish List</span>  
+                        <span class="hidden-lg">Wish List</span>  
                     </a></li>
                     <li><a href="#">
                         <span class="inline-list__icon inline-list__user "></span>
-                        <span class="hidden-md">Sing in</span>  
+                        <span class="hidden-lg">Sing in</span>  
                     </a></li>
                 </ul>
             </div>
         </div>
-        <div class="header-bottom">
-            <div class="container container-flex">  
-            <div class="header-bottom__category">
-                <div class="header-bottom__hamburger">
-                    <span class="item"></span>
-                    <span class="item"></span>
-                    <span class="item"></span>
+        <div class="header-bottom nav-mobile">
+            <div class="container"> 
+                <div class="container-flex"> 
+                    <div class="category">
+                        <div class="category__title">
+                            <i class="fas fa-list"></i>
+                            All categories
+                        </div>
+                        <ul class="category__menu">
+                            <li><a href="#">Lorem 1</a></li>
+                            <li><a href="#">Lorem 1</a></li>
+                            <li><a href="#">Lorem 1</a></li>
+                            <li><a href="#">Lorem 1</a></li>
+                        </ul>
+                    </div>
+                    <ul class="header-bottom__menu">
+                        <li><a href="#">Super deals</a></li>
+                        <li><a href="#">Featured brands</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">Bestselling</a></li>
+                    </ul>
+                    <div class="header-bottom__list">
+                        <div class="header-bottom__help"> 
+                            <form id="form__help" action="#" class="form__help">
+                                <select name="help" id="">
+                                    <option value="0">Help</option>
+                                    <option value="1">help 1</option>
+                                    <option value="2">help 2</option>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="header-bottom__curr"> 
+                            <form id="form__curr" action="#" class="form__curr">
+                                <select name="currancy" id="">
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                </select>
+                            </form>
+                            <!-- USD
+                            <ul class="header-bottom__submenu">
+                                <li><a href="#">EUR</a></li>
+                                <li><a href="#">GBP</a></li>
+                            </ul> -->
+                        </div>
+                        <div class="header-bottom_lang">
+                            <form id="form__lang" action="#" class="form__lang">
+                                <select name="languages" id="">
+                                    <option value="lang">Language</option>
+                                    <option value="en">EN</option>
+                                    <option value="es">ES</option>
+                                    <option value="uk">UK</option>
+                                </select>
+                            </form>
+                        </div>
+                    </div> 
                 </div>
-                All categories
-            </div>
-            <ul class="header-bottom__menu">
-                <li><a href="#">Super deals</a></li>
-                <li><a href="#">Featured brands</a></li>
-                <li><a href="#">Collections</a></li>
-                <li><a href="#">Bestselling</a></li>
-            </ul>
-            <div class="header-bottom__list">
-                <div class="header-bottom__help"> 
-                    <form id="form__help" action="#" class="form__help">
-                        <select name="help" id="">
-                            <option value="0">Help</option>
-                            <option value="1">help 1</option>
-                            <option value="2">help 2</option>
-                        </select>
-                    </form>
-                </div>
-                <div class="header-bottom__curr"> 
-                    <form id="form__curr" action="#" class="form__curr">
-                        <select name="currancy" id="">
-                            <option value="USD">USD</option>
-                            <option value="EUR">EUR</option>
-                            <option value="GBP">GBP</option>
-                        </select>
-                    </form>
-                    <!-- USD
-                    <ul class="header-bottom__submenu">
-                        <li><a href="#">EUR</a></li>
-                        <li><a href="#">GBP</a></li>
-                    </ul> -->
-                </div>
-                <div class="header-bottom_lang">
-                    <form id="form__lang" action="#" class="form__lang">
-                        <select name="languages" id="">
-                            <option value="lang">Language</option>
-                            <option value="en">EN</option>
-                            <option value="es">ES</option>
-                            <option value="uk">UK</option>
-                        </select>
-                    </form>
-                </div>
-            </div> 
             </div>  
         </div>
     </header>
@@ -131,19 +142,10 @@
                <div class="row">
                    <div class="col-md-3">
                         <div class="left-menu">
-                            <!-- <div class="tabs">
-                                <ul class="tabs__caption">
-                                    <li class="active">Price</li>
-                                    <li>Brand</li>
-                                    <li>Color</li>
-                                </ul>
-                                <div class="tabs__content active">price</div>
-                                <div class="tabs__content">brand</div>
-                                <div class="tabs__content">color</div>
-                            </div>   -->
+                            <a href="#" id="btn__filter" class="btn btn__filter">Filter</a>
 
                             <div class="accordion-group">
-                                <div class="accordion open">
+                                <div class="accordion">
                                     <div class="accordion__caption">Price</div>
                                     <div class="accordion__content">
                                         <div>Price 1</div>
@@ -187,13 +189,177 @@
                                                 <input type="checkbox">
                                                 <span class="checkmark"></span>
                                               </label> 
+
+                                              <div class="read-more-toggle">
+                                                <label class="form__label">Sony
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label>
+                                                  <label class="form__label">Asus
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label>
+                                                  <label class="form__label">LG
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label> 
+                                                  <label class="form__label">Lenovo
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label>
+                                            </div>
+                                            <a class="read-more-link">Show more</a>
                                         </form>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption active">Color</div>
+                                    <div class="accordion__content open">
+                                        <form action="#" class="form-checkbox">
+                                            <label class="form__label">Ivory
+                                                <input type="checkbox" checked="checked">
+                                                <span class="checkmark"></span>
+                                              </label>
+                                              <label class="form__label">Deep Grey
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                              </label>
+                                              <label class="form__label">Coffe
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                              </label>
+                                              <label class="form__label">Red
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                              </label> 
+                                              <label class="form__label">Pink
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                              </label> 
+                                              <label class="form__label">Yellow
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                              </label>
+                                              <label class="form__label">Green
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                              </label>  
+                                              <label class="form__label">Black    
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                              </label> 
+
+                                              <div class="read-more-toggle">
+                                                <label class="form__label">Blue
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label>
+                                                  <label class="form__label">Purple
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label>
+                                                  <label class="form__label">Brown
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label> 
+                                                  <label class="form__label">Lime
+                                                    <input type="checkbox">
+                                                    <span class="checkmark"></span>
+                                                  </label>
+                                            </div>
+                                            <a class="read-more-link">Show more</a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption">Body Weight</div>
+                                    <div class="accordion__content">
+                                        <div>Lorem 1</div>
+                                        <div>Lorem 2</div>
+                                        <div>Lorem 3</div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption">CPU Cores</div>
+                                    <div class="accordion__content">
+                                        <div>Lorem 1</div>
+                                        <div>Lorem 2</div>
+                                        <div>Lorem 3</div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption">CPU Type</div>
+                                    <div class="accordion__content">
+                                        <div>Lorem 1</div>
+                                        <div>Lorem 2</div>
+                                        <div>Lorem 3</div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption">Screen Size</div>
+                                    <div class="accordion__content">
+                                        <div>Lorem 1</div>
+                                        <div>Lorem 2</div>
+                                        <div>Lorem 3</div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption">Operation System</div>
+                                    <div class="accordion__content">
+                                        <div>Lorem 1</div>
+                                        <div>Lorem 2</div>
+                                        <div>Lorem 3</div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption">Cellular</div>
+                                    <div class="accordion__content">
+                                        <div>Lorem 1</div>
+                                        <div>Lorem 2</div>
+                                        <div>Lorem 3</div>
+                                    </div>
+                                </div>
+                                <div class="accordion">
+                                    <div class="accordion__caption">Ram</div>
+                                    <div class="accordion__content">
+                                        <div>Lorem 1</div>
+                                        <div>Lorem 2</div>
+                                        <div>Lorem 3</div>
                                     </div>
                                 </div>
                             </div>                          
                         </div>
                    </div>
-                   <div class="col-md-9"></div>
+                   <div class="col-md-9">
+                       <div class="tabs">
+                            <ul class="tabs__caption">
+                                <li class="active">Popular products</li>
+                                <li>Low price</li>
+                                <li>High price</li>
+                            </ul>
+                            <div class="tabs__content active">
+                                <div class="card">
+                                    <div class="card__title">
+                                        <div class="card__sale">Sale 10%</div>
+                                        
+                                    </div>
+                                    <div class="card__image"></div>
+                                    <div class="card__desc">
+                                        <p>Asus ZenFone Go ZB452KG (black and white)</p>
+                                        <ul class="card__re">
+                                            <li></li>
+                                        </ul>
+                                        <div class="card__cart">
+                                            $ 384.4
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tabs__content">low</div>
+                            <div class="tabs__content">high</div>
+                        </div>  
+                   </div>
                </div>
            </div>
         </section>

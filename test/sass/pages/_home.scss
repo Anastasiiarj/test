@@ -109,13 +109,17 @@
     background-color: $white;
     border-radius: 7px;
 
+    .accordion-group {
+      @include breakpoint(md) {
+        display: none;
+      }
+    }
     .accordion {
-      padding: 25px 20px;
+      padding: 18px 20px 19px;
       border-bottom: 2px solid $gray-bg;
 
       &__caption {
         position: relative;
-        margin-bottom: 30px;
 
         // arrow
         &:after {
@@ -148,6 +152,7 @@
           overflow: visible;
           height: auto;
           opacity: 1;
+          padding-top: 30px;
 
           // @include breakpoint(lg) {
           //   overflow: hidden;
@@ -155,6 +160,91 @@
           //   opacity: 1;
           // }
         }
+
+        .form-checkbox {
+          .read-more-toggle {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: opacity .5s ease, height .3s ease;
+            &.active {
+              @include flexbox();
+              @include flexwrap(wrap);
+              overflow: visible;
+              height: auto;
+              opacity: 1;
+            }
+          }
+
+          .read-more-link {
+            width: 100%;
+            cursor: pointer;
+            font-size: 10px;
+            font-weight: $bold-font-weight;
+            color: $gray-light;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            padding-left: 40px;
+            position: relative;
+            @extend %fa-icon;
+            @extend .fas;
+          
+            &:before {
+              content: fa-content($fa-var-plus);
+              position: absolute;
+              top: 0;
+              left: 10px;
+            }
+
+            &.active {
+              &:before {
+                content: fa-content($fa-var-minus);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .btn {
+      display: none;
+      @include breakpoint(md) {
+        display: block;
+      }
+    }
+  }
+
+  .tabs {
+
+    &__caption {
+      @include flexbox();
+      align-items: center;
+      background-color: $white;
+      border-radius: 7px;
+      -moz-box-shadow:    0px 6px 10px 0px rgba(204, 204, 204, .3);
+      -webkit-box-shadow: 0px 6px 10px 0px rgba(204, 204, 204, .3);
+      box-shadow: 0px 6px 10px 0px rgba(204, 204, 204, .3);
+
+      li {
+        padding: 18px 0;
+        font-size: 13px;
+        font-weight: $bold-font-weight;
+        color: $gray;
+        margin: 0 20px;
+        border-bottom: 2px solid $white;
+
+        &.active {
+          color: $blue;
+          border-bottom: 2px solid $blue;
+        }
+      }
+    }
+
+    &__content {
+      display: none;
+
+      &.active {
+        display: block;
       }
     }
   }

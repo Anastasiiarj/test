@@ -7,8 +7,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px 0 38px;
+    @include breakpoint(lg) {
+      padding: 20px 0;
+    }
     
     .logo {
+      @include breakpoint(lg) {
+        padding-left: 50px;
+      }
       a{
         text-transform: uppercase;
         font-size: 22px;
@@ -42,6 +48,12 @@
           width: 2px;
           height: 50px;
         } 
+        &:before {
+          left: 0;
+        }
+        &:after {
+          right: 0;
+        }
 
         select {
           width: 142px;
@@ -76,7 +88,7 @@
         background: url('../../images/icons/icon-search.png') no-repeat center center;
         
         @include breakpoint(md) {
-          border-right: 2px solid $gray-border;
+          border-left: 2px solid $gray-border;
         }
         // &:before {
         //   content: '';
@@ -117,8 +129,8 @@
     }
   }
 
-  .hidden-md {
-    @include breakpoint(md) {
+  .hidden-lg {
+    @include breakpoint(lg) {
       display: none;
     }
   }
@@ -132,11 +144,59 @@
       @include flexbox();
       align-items: center;
       justify-content: space-between;
+
+      @include breakpoint(lg) {
+        display: block;
+        height: auto;
+      }
     }
 
-    &-bottom__category {
+    .category {
       max-width: 202px;
       width: 100%;
+      height: 100%;
+      position: relative;
+      @include flexbox();
+      align-items: center;
+
+      &__title {
+        @include breakpoint(lg) {
+          padding: 12px 0;
+        }
+        i {
+          padding-right: 15px;
+
+          @include breakpoint(lg) {
+            display: none;
+          }
+        }
+      }
+
+      &__menu {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: opacity 1s ease 0.3s, height 0.3s ease;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        background-color: #fff;
+        padding: 5px 10px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        box-shadow: 0px 5px 7px 0px rgba(0,0,0,.2);
+
+        &.active {
+          height: auto;
+          overflow: visible;
+          opacity: 1;
+        }
+
+        li {
+          padding: 7px 0;
+        }
+      }
     }
 
     &__menu {
@@ -147,8 +207,18 @@
       border-right: 2px solid $gray-border;
       border-left: 2px solid $gray-border;
 
+      @include breakpoint(lg) {
+        display: block;
+        padding: 0;
+        border: none;
+        max-width: inherit;
+      }
+
       li {
         padding: 18px;
+        @include breakpoint(lg) {
+          padding: 12px 0;
+        }
 
         a {
           text-transform: capitalize;
@@ -160,10 +230,19 @@
       @include flexbox();
       align-items: center;
 
+      @include breakpoint(lg) {
+        display: block;
+      }
+
       select {
         color: $gray-light;
         font-weight: $medium-font-weight; 
         height: 64px;
+
+        @include breakpoint(lg) {
+          height: auto;
+          padding: 12px 0;
+        }
       }
 
       .form__curr {
@@ -173,5 +252,11 @@
         }
       }
     }
-  }  
+  } 
+  .nav-mobile {
+    @include breakpoint(lg) {
+      display: none;
+    }
+  } 
+
 }

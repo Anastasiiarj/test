@@ -16,20 +16,6 @@ $(document).ready(function() {
 
   // accordion for filters
 
-    // $(".accordion__caption").click(function() {
-    //     let ul = $(this).next(),
-    //         clone = ul.clone().css({"height":"auto"}).appendTo(".mini-menu"),
-    //         height = ul.css("height") === "0px" ? ul[0].scrollHeight + "px" : "0px";
-    //     clone.remove();
-    //     ul.animate({"height":height});
-    //     if(!$(this).next().hasClass('active')){
-    //         $(this).next().addClass('active');
-    //     } else {
-    //         $(".accordion > .accordion__content ").removeClass('active');
-    //     }
-    //     return false;
-    // });
-
     $(function() {
       var items = $(".accordion__caption");
     
@@ -46,4 +32,30 @@ $(document).ready(function() {
       });
     });
 
+    // all category
+
+    $(".category__title").on('click', function() {
+      $(".category__menu").toggleClass("active");
+    })
+
+
+    // hamburger
+
+    $('.hamburger').click(function(){
+      $(this).toggleClass("is-active");
+      $(".nav-mobile").animate({width:'toggle'}, 600);
+  });
+
+
+  // read more / less
+
+  $('.read-more-link').click(function(e) {
+    //e.preventDefault();
+    $(this).toggleClass('active');
+    $(this).parent().find('.read-more-toggle').toggleClass('active');
+    var text = $(this).text() == 'Show more' ? 'Show less' : 'Show more';
+    $(this).text(text);
 });
+
+});
+
