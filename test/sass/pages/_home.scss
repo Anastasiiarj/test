@@ -3,8 +3,9 @@
   align-items: center;
 
   li {
-    padding: 10px 20px;
+    padding: 10px 22px;
     position: relative;
+
     &:after {
       content: '';
       position: absolute;
@@ -35,17 +36,22 @@
 
 .section-category {
   background-color: $gray-bg;
+  padding: 35px 0;
 
   .block-nav {
     @include flexbox();
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 80px;
+    margin-bottom: 74px;
     @include flexwrap(wrap);
 
     @include breakpoint(md) {
       margin-bottom: 40px;
     }
+  }
+
+  .area-title {
+    margin-bottom: 61px;
   }
 
   .social {
@@ -64,12 +70,13 @@
 
   .social__list {
     @include flexbox();
+    padding-right: 14px;
 
     li {
-      padding: 5px;
       a {
         i {
-          padding: 0 20px;
+          padding: 0 15px 0 24px;
+          font-size: 20px;
         }
         .fa-facebook-f {
           color: $dark-blue;
@@ -183,7 +190,7 @@
             font-weight: $bold-font-weight;
             color: $gray-light;
             text-transform: uppercase;
-            letter-spacing: .15em;
+            letter-spacing: .12em;
             padding-left: 40px;
             position: relative;
             @extend %fa-icon;
@@ -215,23 +222,26 @@
   }
 
   .tabs {
+    @include breakpoint(md) {
+      margin-top: 30px;
+    }
 
     &__caption {
       @include flexbox();
       align-items: center;
       background-color: $white;
       border-radius: 7px;
-      -moz-box-shadow:    0px 6px 10px 0px rgba(204, 204, 204, .3);
-      -webkit-box-shadow: 0px 6px 10px 0px rgba(204, 204, 204, .3);
-      box-shadow: 0px 6px 10px 0px rgba(204, 204, 204, .3);
+      @include block-shadow();
+      margin-bottom: 30px;
 
       li {
         padding: 18px 0;
         font-size: 13px;
         font-weight: $bold-font-weight;
         color: $gray;
-        margin: 0 20px;
+        margin: 0 12px 0 32px;
         border-bottom: 2px solid $white;
+        cursor: pointer;
 
         &.active {
           color: $blue;
@@ -245,6 +255,151 @@
 
       &.active {
         display: block;
+      }
+    }
+  }
+
+  .card {
+    @include flexbox();
+    @include flexwrap(wrap);
+    justify-content: space-between;
+    margin: 0 -15px;
+    
+
+    &__item {
+      display: block;
+      background-color: $white;
+      border-radius: 6px;
+      width: 29%;
+      padding: 20px 20px 30px;
+      margin: 0 15px 30px;
+      @include block-shadow();
+      transition: transform .3s ease;
+
+      @include breakpoint(md) {
+        width: 40%;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &__title {
+      @include flexbox();
+      justify-content: space-between;
+    }
+
+    &__sale {
+      border-radius: 5px;
+      background-color: #f7f7f7;
+      min-width: 65px;
+      text-align: center;
+
+      strong {
+        font-size: 10px;
+        padding: 4px 5px;
+        color: $gray-light;
+        text-transform: uppercase;
+      }
+    }
+
+    &__buttons {
+      @include flexbox();
+    }
+
+    &__button {
+      @include flexbox();
+      background-color: transparent;
+      border: none;
+      outline: none;
+      padding: 0 0 0 20px;
+      position: relative;
+
+      &:before {
+        content: '';
+        display: inline-block;
+      }
+
+      &_wish {
+        &:before {
+          @include sprite($wishlist-light-icon);
+        }
+
+        &:hover {
+          &:before {
+            @include sprite($wishlist-icon);
+          }
+        }
+      }
+      &_list {
+        &:before {
+          @include sprite($list-light-icontabs);
+        }
+      }
+    }
+
+    &__image {
+      padding: 30px 10px 16px;
+      text-align: center;
+    }
+
+    &__desc {
+      text-align: center;
+
+      p {
+        color: $gray-dark;
+      }
+    }
+
+    &__rating {
+      @include flexbox();
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+
+      li {
+        position: relative;
+        cursor: pointer;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          @include sprite($star-yellow);
+        }
+      }
+      
+      span {
+        font-size: 12px;
+        color: $gray-light;
+        padding-left: 12px;
+      }
+    }
+
+    &__stars {
+      @include flexbox();
+      li {
+        padding: 0 2px;
+      }
+    }
+
+    &__cart {
+      @include flexbox();
+      justify-content: center;
+
+      strong {
+        font-size: 16px;
+        color: $gray-dark;
+      }
+      span {
+        padding-left: 15px;
+        position: relative;
+
+        &:before {
+          content: '';
+          display: inline-block;
+          @include sprite($cart-light-icon);
+        }
       }
     }
   }

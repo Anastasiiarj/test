@@ -8,11 +8,12 @@
     text-transform: capitalize;
     font-weight: $medium-font-weight;
     color: $gray-dark;
-    border: 2px solid $gray-border;
+    @include block-shadow();
     border-radius: 5px;
     padding: 13px 15px 12px;
     text-align: center;
     background-color: $white;
+    outline: none;
     transition: background-color .4s ease, color .9s ease;
     @include breakpoint(md) {
         max-width: inherit;

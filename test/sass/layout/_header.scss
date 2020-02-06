@@ -6,18 +6,20 @@
     @include flexbox();
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0 38px;
+    padding: 25px 0 35px;
     @include breakpoint(lg) {
       padding: 20px 0;
     }
     
     .logo {
+      padding: 0 10px 0 25px;
       @include breakpoint(lg) {
         padding-left: 50px;
       }
       a{
         text-transform: uppercase;
         font-size: 22px;
+        letter-spacing: 0.08em;
       }
     }
 
@@ -26,7 +28,7 @@
         @include flexbox();
         align-items: center;
         border: 2px solid $gray-border;
-        border-radius: 10px;
+        border-radius: 5px;
         height: 50px;
       }
 
@@ -56,7 +58,7 @@
         }
 
         select {
-          width: 142px;
+          width: 135px;
           color: $gray-light;
           text-transform: uppercase;
           text-align: center;
@@ -83,47 +85,65 @@
 
       &__btn {
         width: 50px;
-        height: 50px;
         border: none;
-        background: url('../../images/icons/icon-search.png') no-repeat center center;
+        box-shadow: none;
+        //background: url('../../images/icons/icon-search.png') no-repeat center center;
         
         @include breakpoint(md) {
           border-left: 2px solid $gray-border;
         }
-        // &:before {
-        //   content: '';
-        //   display: inline-block;
-        //   @include sprite($icon-search);
-        // }
+        &:before {
+          content: '';
+          display: inline-block;
+          @include sprite($icon-search);
+        }
       }
     }
 
     .inline-list {
       @include flexbox();
       align-items: center;
+      padding-right: 40px;
   
       li {
         a {
           font-weight: $medium-font-weight; 
           text-transform: capitalize;
           @include flexbox();
-  
+        }
+        &:first-child {
           .inline-list__icon {
-            display: inline-block;
-            width: 21px;
-            height: 20px;
-            padding: 0 25px;
+            padding-left: 14px;
           }
-  
-          .inline-list__cart {
-            background: url('../../images/icons/icon-cart.png') no-repeat center center;
-          }
-          .inline-list__wishlist {
-            background: url('../../images/icons/icon-wishlist.png') no-repeat center center;
-          }
-          .inline-list__user {
-            background: url('../../images/icons/icon-user.png') no-repeat center center;
-          }
+        }
+      }
+
+      &__icon {
+        display: inline-block;
+        width: 21px;
+        height: 20px;
+        padding: 0 34px 0 44px;
+        position: relative;
+        
+        &:before {
+          content: '';
+          display: inline-block;
+        }
+      }
+
+      &__cart {
+        &:before {
+          @include sprite($cart-icon);
+        }
+      }
+      &__wishlist {
+        &:before {
+          @include sprite($wishlist-icon);
+        }
+      }
+      &__user {
+        &:before {
+          @include sprite($icon-user);
         }
       }
     }
@@ -143,7 +163,7 @@
       height: 64px;
       @include flexbox();
       align-items: center;
-      justify-content: space-between;
+      //justify-content: space-between;
 
       @include breakpoint(lg) {
         display: block;
@@ -164,7 +184,7 @@
           padding: 12px 0;
         }
         i {
-          padding-right: 15px;
+          padding: 0 28px;
 
           @include breakpoint(lg) {
             display: none;

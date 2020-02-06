@@ -57,7 +57,7 @@ gulp.task('sprites', function() {
         cssName: '_sprite.scss',
         padding: 2
     }));
-    spriteData.img.pipe(gulp.dest('images'));
+    spriteData.img.pipe(gulp.dest('assets'));
     spriteData.css.pipe(gulp.dest('sass/helpers'));
 });
 
