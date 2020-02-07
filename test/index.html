@@ -39,15 +39,15 @@
                     </div>
                 </form>
                 <ul class="inline-list">
-                    <li><a href="#">
+                    <li class="inline-list__item"><a href="#">
                         <span class="inline-list__icon inline-list__cart"></span>
                         <span class="hidden-lg">2 Items</span>
                     </a></li>
-                    <li><a href="#">
+                    <li class="inline-list__item"><a href="#">
                         <span class="inline-list__icon inline-list__wishlist"></span>
                         <span class="hidden-lg">Wish List</span>  
                     </a></li>
-                    <li><a href="#">
+                    <li id="liSingIn" class="inline-list__item inline-list__item_singin"><a href="#">
                         <span class="inline-list__icon inline-list__user "></span>
                         <span class="hidden-lg">Sing in</span>  
                     </a></li>
@@ -112,6 +112,19 @@
                     </div> 
                 </div>
             </div>  
+        </div>
+        <div id="modal" class="modal">
+            <span class="close">&times;</span>
+            <form action="/" class="form">
+                <div class="form__group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form__input" placeholder="Enter Email" name="email" required>
+
+                    <label for="psw">Password</label>
+                    <input type="password" class="form__input" placeholder="Enter Password" name="psw" required>
+                    <button type="submit" class="btn btn__signup">Sign In</button>
+                </div>
+            </form>
         </div>
     </header>
     <main class="main">
@@ -460,13 +473,66 @@
                             <div class="tabs__content">low</div>
                             <div class="tabs__content">high</div>
                         </div>  
+                        <div class="pagination">
+                            <button class="btn pagination__btn pagination__btn_prev"><strong>Previous page</strong></button>
+                            <span class="pagination__number">1</span>
+                            <button class="btn pagination__btn pagination__btn_next"><strong>Next page</strong></button>
+                        </div>
                    </div>
                </div>
            </div>
         </section>
     </main>
     <footer class="footer">
-        
+        <div class="footer__top">
+            <div class="container">
+                <div class="footer__item">
+                    <div class="logo">
+                        <a href="#"><strong>quantum</strong></a>
+                    </div>
+                    <ul class="main-menu">
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">
+                            Journal
+                            <ul class="submenu">
+                                <li><a href="#">lorem ipsum</a></li>
+                                <li><a href="#">lorem dolor</a></li>
+                                <li><a href="#">perspiciatis unde</a></li>
+                                <li><a href="#">sed quia consequuntur</a></li>
+                            </ul>
+                        </a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contacts</a></li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="footer__item">
+                    <ul class="copyright">
+                        <li><a href="#">&copy;2016. Quantum UI kit</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                    </ul>
+                    <div class="payment">
+                        <p>Accepted payment methods</p>
+                        <ul class="payment__list">
+                            <li class="payment__item payment__item_visa"></li>
+                            <li class="payment__item payment__item_master"></li>
+                            <li class="payment__item payment__item_paypal"></li>
+                            <li class="payment__item payment__item_amazon"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
     <script src="assets/main.min.js"></script>
 </body>

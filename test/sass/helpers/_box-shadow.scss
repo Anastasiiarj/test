@@ -11,7 +11,7 @@
 }
 
 @mixin block-shadow {
-  @include box-shadow(0, 6px, 10px, rgba(204, 204, 204, .3));
+  @include box-shadow(0, 6px, 10px, rgba(204, 204, 204, .4));
 }
 
 @mixin rounded($radius: 0.5em) {

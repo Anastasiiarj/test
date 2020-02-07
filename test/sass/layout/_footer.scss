@@ -1,0 +1,142 @@
+.footer {
+  background-color: $white;
+
+  &__item {
+    min-height: 120px;
+    @include flexbox();
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    @include breakpoint(xxl) {
+      min-height: 70px;
+    }
+    @include breakpoint(md) {
+      flex-direction: column;
+    }
+  }
+
+  &__top {
+    border-bottom: 2px solid $gray-border;
+
+    .main-menu {
+      @include flexbox();
+      align-items: center;
+
+      @include breakpoint(md) {
+        flex-direction: column;
+      }
+
+      li {
+        a {
+          display: block;
+          font-size: 16px;
+          color: $gray-dark;
+          padding: 5px 30px;
+          &:hover {
+            color: $gray-light;
+          }
+        }
+
+        .submenu {
+          display: none;
+        }
+      }
+    }
+
+    .social {
+      @include flexbox();
+      align-items: center;
+      @include breakpoint(md) {
+        margin-top: 10px;
+      }
+
+      a {
+        display: block;
+        padding: 8px 16px;
+        &:hover {
+          i {
+            color: $blue;
+          }
+        }
+      }
+      i {
+        color: $gray-dark;
+      }
+      
+    }
+  }
+
+  &__bottom {
+    
+    .copyright {
+      @include flexbox();
+      align-items: center;
+      margin: 0 -16px;
+
+      @include breakpoint(md) {
+        flex-direction: column;
+        margin-bottom: 18px;
+      }
+
+      li {
+        a {
+          color: #b8b8b8;
+          padding: 5px 16px;
+          display: block;
+
+          &:hover {
+            color: $gray-dark;
+          }
+        }
+      }
+    }
+
+    .payment {
+      @include flexbox();
+      align-items: center;
+
+      @include breakpoint(md) {
+        flex-direction: column;
+      }
+
+      p {
+        margin-bottom: 0;
+      }
+
+      &__list {
+        @include flexbox();
+        align-items: center;
+      }
+
+      &__item {
+        padding: 10px;
+
+        &:before {
+          display: inline-block;
+          content: '';
+        }
+
+        &_visa {
+          &:before {
+            @include sprite($visa-icon);
+          }
+        }
+        &_master {
+          &:before {
+            @include sprite($master-card-icon);
+          }
+        }
+        &_paypal {
+          &:before {
+            @include sprite($pay-pal-icon);
+          }
+        }
+        &_amazon {
+          &:before {
+            @include sprite($amazon-icon);
+          }
+        }
+      }
+    }
+  }
+}

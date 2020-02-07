@@ -1,3 +1,15 @@
+.logo {
+  //padding: 0 10px 0 25px;
+  
+  a{
+    display: block;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+  }
+}
+
 .header {
   position: relative;
   z-index: 2;
@@ -10,16 +22,14 @@
     @include breakpoint(lg) {
       padding: 20px 0;
     }
-    
+
     .logo {
-      padding: 0 10px 0 25px;
       @include breakpoint(lg) {
         padding-left: 50px;
+        padding-right: 25px;
       }
-      a{
-        text-transform: uppercase;
-        font-size: 22px;
-        letter-spacing: 0.08em;
+      @include breakpoint(xs) {
+        padding-right: 0;
       }
     }
 
@@ -86,8 +96,8 @@
       &__btn {
         width: 50px;
         border: none;
+        border-radius: 0;
         box-shadow: none;
-        //background: url('../../images/icons/icon-search.png') no-repeat center center;
         
         @include breakpoint(md) {
           border-left: 2px solid $gray-border;
@@ -104,12 +114,18 @@
       @include flexbox();
       align-items: center;
       padding-right: 40px;
+      @include breakpoint(md) {
+        padding-right: 0;
+      }
   
       li {
         a {
           font-weight: $medium-font-weight; 
           text-transform: capitalize;
           @include flexbox();
+          &:hover {
+            color: $gray-light;
+          }
         }
         &:first-child {
           .inline-list__icon {
@@ -124,6 +140,9 @@
         height: 20px;
         padding: 0 34px 0 44px;
         position: relative;
+        @include breakpoint(md) {
+          padding: 0 20px;
+        }
         
         &:before {
           content: '';
@@ -178,8 +197,12 @@
       position: relative;
       @include flexbox();
       align-items: center;
+      cursor: pointer;
 
       &__title {
+        &:hover {
+          color: $gray-light;
+        }
         @include breakpoint(lg) {
           padding: 12px 0;
         }
@@ -196,7 +219,7 @@
         height: 0;
         overflow: hidden;
         opacity: 0;
-        transition: opacity 1s ease 0.3s, height 0.3s ease;
+        transition: opacity .5s ease , height .3s ease;
         position: absolute;
         left: 0;
         top: 100%;
@@ -214,15 +237,23 @@
         }
 
         li {
-          padding: 7px 0;
+          a {
+            display: block;
+            padding: 7px 0;
+            &:hover {
+              padding-left: 7px;
+            }
+          }
         }
       }
     }
 
     &__menu {
       @include flexbox();
+      align-items: center;
       max-width: 564px;
       width: 100%;
+      height: 100%;
       padding: 0 17px;
       border-right: 2px solid $gray-border;
       border-left: 2px solid $gray-border;
@@ -235,13 +266,16 @@
       }
 
       li {
-        padding: 18px;
         @include breakpoint(lg) {
           padding: 12px 0;
         }
 
         a {
           text-transform: capitalize;
+          padding: 18px;
+          &:hover {
+            color: $gray-light;
+          }
         }
       }
     }
@@ -279,4 +313,67 @@
     }
   } 
 
+  // modal
+
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(71, 78, 93, .8);;
+    padding-top: 50px;
+
+    .form {
+      padding: 20px;
+      border-radius: 5px;
+      @include block-shadow();
+      max-width: 300px;
+      width: 100%;
+      margin: 0 auto;
+      background-color: $gray-bg;
+      position: relative;
+      -webkit-animation-name: animatetop;
+      -webkit-animation-duration: .4s;
+      animation-name: animatetop;
+      animation-duration: .4s;
+
+      @-webkit-keyframes animatetop {
+        from {top:-300px; opacity:0} 
+        to {top:0; opacity:1}
+      }
+      
+      @keyframes animatetop {
+          from {top:-300px; opacity:0}
+          to {top:0; opacity:1}
+      }
+
+      .btn {
+        border: 2px solid $gray-text;
+        background-color: $gray-text;
+
+        &:hover {
+          background-color: $white;
+          border-color: $gray-border;
+        }
+      }
+    }
+
+    .close {
+      position: absolute;
+      right: 35px;
+      top: 15px;
+      font-size: 40px;
+      color: #f1f1f1;
+
+      &:hover,
+      &:focus {
+        color: $blue;
+        cursor: pointer;
+      }
+    }
+  }
 }

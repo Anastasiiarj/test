@@ -84,3 +84,5 @@ gulp.task('watch', function() {
 gulp.task('default', ['clean'], function() {
     gulp.run('styles', 'scripts', 'images', 'sprites');
 });
+
+
