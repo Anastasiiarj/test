@@ -18,6 +18,7 @@
     @include flexbox();
     justify-content: space-between;
     align-items: center;
+    @include flexwrap(wrap);
     padding: 25px 0 35px;
     @include breakpoint(lg) {
       padding: 20px 0;
@@ -28,12 +29,21 @@
         padding-left: 50px;
         padding-right: 25px;
       }
+      @include breakpoint(md) {
+        padding-left: 35px;
+      }
       @include breakpoint(xs) {
         padding-right: 0;
       }
     }
 
     .form {
+      @include breakpoint(md) {
+        order: 3;
+        width: 100%;
+        margin-top: 18px;
+      }
+
       &__group {
         @include flexbox();
         align-items: center;
@@ -46,43 +56,21 @@
         border: none;
         width: 278px;
         padding: 10px 18px;
+        @include breakpoint(md) {
+          width: 100%;
+        }
       }
 
       &__select {
         position: relative;
-
-        &:before,
-        &:after {
-          content: '';
-          position: absolute;
-          top: -15px;
-          background-color: $gray-border;
-          width: 2px;
-          height: 50px;
-        } 
-        &:before {
-          left: 0;
-        }
-        &:after {
-          right: 0;
-        }
+        width: 135px;
+        border-left: 2px solid $gray-border;
 
         select {
           width: 135px;
           color: $gray-light;
           text-transform: uppercase;
           text-align: center;
-
-          // &:after {
-          //   position: absolute;
-          //   top: 50%;
-          //   right: 20px;
-          //   width: 5px;
-          //   height: 5px;
-          //   border-bottom: 2px solid $gray-light;
-          //   border-right: 2px solid $gray-light;
-          //   transform: translateY(45deg);
-          // }
 
           option {
             color: $gray-light;
@@ -114,6 +102,9 @@
       @include flexbox();
       align-items: center;
       padding-right: 40px;
+      @include breakpoint(xl) {
+        padding-right: 0;
+      }
       @include breakpoint(md) {
         padding-right: 0;
       }
@@ -154,6 +145,17 @@
         &:before {
           @include sprite($cart-icon);
         }
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: -8px;
+          right: 0;
+          width: 6px;
+          height: 6px;
+          border-radius: 3px;
+          background-color: $blue;
+        }
       }
       &__wishlist {
         &:before {
@@ -165,6 +167,15 @@
           @include sprite($icon-user);
         }
       }
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__placeholder {
+      text-transform: uppercase;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+      padding-top: 10px;
+      padding-bottom: 8px;
     }
   }
 
@@ -273,6 +284,12 @@
         a {
           text-transform: capitalize;
           padding: 18px;
+          @include breakpoint(xl) {
+            padding: 8px;
+          }
+          @include breakpoint(md) {
+            padding-left: 0;
+          }
           &:hover {
             color: $gray-light;
           }
@@ -283,6 +300,7 @@
     &__list {
       @include flexbox();
       align-items: center;
+      height: 100%;
 
       @include breakpoint(lg) {
         display: block;
@@ -291,22 +309,51 @@
       select {
         color: $gray-light;
         font-weight: $medium-font-weight; 
-        height: 64px;
 
         @include breakpoint(lg) {
           height: auto;
           padding: 12px 0;
         }
       }
+    }
+
+    &__help {
+      width: 106px;
+      height: 100%;
+      @include breakpoint(md) {
+        width: 100%;
+      }
+
+      .form-group {
+        height: 100%;
+      } 
+    }
+
+    &__curr {
+      width: 106px;
+      height: 100%;
+      @include breakpoint(md) {
+        width: 100%;
+      }
 
       .form__curr {
-        
-        select {
-          width: 105px;
-        }
+        height: 100%;
       }
     }
+
+    &__lang {
+      width: 137px;
+      height: 100%;
+      @include breakpoint(md) {
+        width: 100%;
+      }
+    }
+
+    .form-group {
+      height: 100%;
+    } 
   } 
+
   .nav-mobile {
     @include breakpoint(lg) {
       display: none;

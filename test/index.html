@@ -29,10 +29,11 @@
                     <div class="form__group">
                         <input type="text" class="form__search" placeholder="Search goods">
                         <div class="form__select hidden-lg">
-                            <select name="category" id="">
-                                <option value="0">Category</option>
+                            <select name="category" class="select select-category"> 
+                                <option></option>
                                 <option value="1">Apple</option>
                                 <option value="2">Huawei</option>
+                                <option value="3">Asus</option>
                             </select>
                         </div>
                         <button type="submit" class="btn form__btn"></button>
@@ -77,37 +78,33 @@
                     </ul>
                     <div class="header-bottom__list">
                         <div class="header-bottom__help"> 
-                            <form id="form__help" action="#" class="form__help">
-                                <select name="help" id="">
-                                    <option value="0">Help</option>
-                                    <option value="1">help 1</option>
-                                    <option value="2">help 2</option>
+                            <div class="form-group">
+                                <select name="help" class="select select-help"> 
+                                    <option></option>
+                                    <option value="1">Help 1</option>
+                                    <option value="2">Help 2</option>
+                                    <option value="3">Help 3</option>
                                 </select>
-                            </form>
+                            </div>
                         </div>
                         <div class="header-bottom__curr"> 
                             <form id="form__curr" action="#" class="form__curr">
-                                <select name="currancy" id="">
+                                <select name="currancy" class="select select-curr">
                                     <option value="USD">USD</option>
                                     <option value="EUR">EUR</option>
                                     <option value="GBP">GBP</option>
                                 </select>
                             </form>
-                            <!-- USD
-                            <ul class="header-bottom__submenu">
-                                <li><a href="#">EUR</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul> -->
                         </div>
-                        <div class="header-bottom_lang">
-                            <form id="form__lang" action="#" class="form__lang">
-                                <select name="languages" id="">
-                                    <option value="lang">Language</option>
+                        <div class="header-bottom__lang">
+                            <div class="form-group">
+                                <select name="languages" class="select select-lang">
+                                    <option></option>
                                     <option value="en">EN</option>
                                     <option value="es">ES</option>
                                     <option value="uk">UK</option>
                                 </select>
-                            </form>
+                            </div>
                         </div>
                     </div> 
                 </div>
@@ -161,9 +158,11 @@
                                 <div class="accordion">
                                     <div class="accordion__caption">Price</div>
                                     <div class="accordion__content">
-                                        <div>Price 1</div>
-                                        <div>Price 2</div>
-                                        <div>Price 3</div>
+                                        <form action="/" class="form form__price">
+                                            <input class="form__input" formcontrolname="min" type="text">
+                                            <span>-</span>
+                                            <input class="form__input" formcontrolname="max" type="text">
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="accordion">
@@ -350,37 +349,12 @@
                                 <li>Low price</li>
                                 <li>High price</li>
                             </ul>
+                            <div class="view">
+                                <button class="btn view__btn view__btn_grid"></button>
+                                <button class="btn view__btn view__btn_list"></button>
+                            </div>
                             <div class="tabs__content active">
                                 <div class="card">
-                                    <a href="#" class="card__item">
-                                        <div class="card__title">
-                                            <div class="card__sale"><strong>Sale 10%</strong></div>
-                                            <div class="card__buttons">
-                                                <button class="card__button card__button_list"></button>                                                </button>
-                                                <button class="card__button card__button_wish"></button>
-                                            </div>                                
-                                        </div>
-                                        <div class="card__image">
-                                            <img src="images/content/asus-1tabs.png" alt="phone">
-                                        </div>
-                                        <div class="card__desc">
-                                            <p>Asus ZenFone Go ZB452KG (black and white)</p>
-                                            <div class="card__rating">
-                                                <ul class="card__stars">
-                                                    <li></li>
-                                                    <li></li>
-                                                    <li></li>
-                                                    <li></li>
-                                                    <li></li>
-                                                </ul>
-                                                <span>12</span>
-                                            </div>                                
-                                            <div class="card__cart">
-                                                <strong>$ 384.4</strong>
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                    </a>
                                     <div class="card__item">
                                         <div class="card__title">
                                             <div class="card__sale"><strong>Sale 10%</strong></div>
@@ -390,10 +364,10 @@
                                             </div>                                
                                         </div>
                                         <div class="card__image">
-                                            <img src="images/content/asus-1tabs.png" alt="phone">
+                                            <a href="#"><img src="images/content/asus-1tabs.png" alt="phone"></a>
                                         </div>
                                         <div class="card__desc">
-                                            <p>Asus ZenFone Go ZB452KG (black and white)</p>
+                                            <a href="#">Asus ZenFone Go ZB452KG (black and white)</a>
                                             <div class="card__rating">
                                                 <ul class="card__stars">
                                                     <li></li>
@@ -419,10 +393,10 @@
                                             </div>                                
                                         </div>
                                         <div class="card__image">
-                                            <img src="images/content/asus-1tabs.png" alt="phone">
+                                            <a href="#"><img src="images/content/asus-1tabs.png" alt="phone"></a>
                                         </div>
                                         <div class="card__desc">
-                                            <p>Asus ZenFone Go ZB452KG (black and white)</p>
+                                            <a href="#">Asus ZenFone Go ZB452KG (black and white)</a>
                                             <div class="card__rating">
                                                 <ul class="card__stars">
                                                     <li></li>
@@ -448,10 +422,39 @@
                                             </div>                                
                                         </div>
                                         <div class="card__image">
-                                            <img src="images/content/asus-1tabs.png" alt="phone">
+                                            <a href="#"><img src="images/content/asus-1tabs.png" alt="phone"></a>
                                         </div>
                                         <div class="card__desc">
-                                            <p>Asus ZenFone Go ZB452KG (black and white)</p>
+                                            <a href="#">Asus ZenFone Go ZB452KG (black and white)</a>
+                                            <div class="card__rating">
+                                                <ul class="card__stars">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                                <span>12</span>
+                                            </div>                                
+                                            <div class="card__cart">
+                                                <strong>$ 384.4</strong>
+                                                <span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card__item">
+                                        <div class="card__title">
+                                            <div class="card__sale"><strong>Sale 10%</strong></div>
+                                            <div class="card__buttons">
+                                                <button class="card__button card__button_list"></button>                                                </button>
+                                                <button class="card__button card__button_wish"></button>
+                                            </div>                                
+                                        </div>
+                                        <div class="card__image">
+                                            <a href="#"><img src="images/content/asus-1tabs.png" alt="phone"></a>
+                                        </div>
+                                        <div class="card__desc">
+                                            <a href="#">Asus ZenFone Go ZB452KG (black and white)</a>
                                             <div class="card__rating">
                                                 <ul class="card__stars">
                                                     <li></li>

@@ -92,7 +92,113 @@
       color: $gray-light;
       font-size: 12px;
     }
+    &::-webkit-input-placeholder { 
+      color: $gray-light;
+      font-size: 12px;
+    }
+    &::-moz-placeholder { 
+      color: $gray-light;
+      font-size: 12px;
+    }
+    &:-ms-input-placeholder {
+      color: $gray-light;
+      font-size: 12px;
+    }
+    &:-moz-placeholder { 
+      color: $gray-light;
+      font-size: 12px;
+    }
+  }
+}
+
+
+// select
+
+.select2-dropdown {
+  border: none !important;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+  background-color: $blue;
+}
+
+.select2-container .select2-selection--single {
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  border-right: 2px solid $gray-border;
+  outline: none;
+  @include breakpoint(md) {
+    border-right: none;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: $gray-light;
+  text-align: center;
+  @include breakpoint(md) {
+    text-align: left;
+  }
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+  color: $gray-light;
+  text-align: center;
+  @include breakpoint(md) {
+    text-align: left;
+  }
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+  padding-right: 30px;
+}
+
+.select2 {
+  width: 100% !important;
+  height: 100%;
+  outline: none;
+
+  &-container {
+
+    &--open {
+      .select2-selection__arrow {
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+    }
   }
 
-  
+  &-selection {
+
+    &__rendered {
+      height: 100%;
+      @include flexbox(); 
+      align-items: center;
+      padding-top: 17px;
+    }
+
+    &__arrow {
+      top: 50% !important;
+      right: 10px !important;
+      transform: translateY(-50%);
+      
+      &:before {
+        content: '';
+        display: inline-block;
+        @include sprite($icon-arrow);
+      }
+
+      b {
+        display: none;
+      }
+    }
+  }
+
+  &-results__options {
+    border: 2px solid $gray-border;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    //@include block-shadow();
+  }
 }

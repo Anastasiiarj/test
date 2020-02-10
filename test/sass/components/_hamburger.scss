@@ -17,7 +17,7 @@
   left: 25px;
   z-index: 5;
 
-  @include breakpoint(xl) {
+  @include breakpoint(lg) {
     display: block;
   }
   @include breakpoint(md) {

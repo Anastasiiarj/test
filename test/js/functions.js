@@ -55,7 +55,31 @@ $(document).ready(function() {
     $(this).parent().find('.read-more-toggle').toggleClass('active');
     var text = $(this).text() == 'Show more' ? 'Show less' : 'Show more';
     $(this).text(text);
-});
+  });
+
+
+  // select
+
+  $('.select-help').select2({
+    placeholder: "Help",
+    //allowClear: true,
+    minimumResultsForSearch: Infinity
+  });
+  
+  $('.select-curr').select2({
+    minimumResultsForSearch: Infinity
+  });
+
+  $('.select-lang').select2({
+    placeholder: "Language",
+    minimumResultsForSearch: Infinity
+  });
+
+  $('.select-category').select2({
+    placeholder: "Category",
+    minimumResultsForSearch: Infinity
+  });
+
 
 });
 
