@@ -155,6 +155,9 @@
           height: 6px;
           border-radius: 3px;
           background-color: $blue;
+          @include breakpoint(md) {
+            right: -8px;
+          }
         }
       }
       &__wishlist {
@@ -211,18 +214,21 @@
       cursor: pointer;
 
       &__title {
+        &:before {
+          display: inline-block;
+          content: '';
+          @include sprite($categories-icon);
+          margin: 0 28px;
+
+          @include breakpoint(lg) {
+            display: none;
+          }
+        }
         &:hover {
           color: $gray-light;
         }
         @include breakpoint(lg) {
           padding: 12px 0;
-        }
-        i {
-          padding: 0 28px;
-
-          @include breakpoint(lg) {
-            display: none;
-          }
         }
       }
 

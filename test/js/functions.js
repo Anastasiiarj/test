@@ -81,6 +81,22 @@ $(document).ready(function() {
   });
 
 
+  // slider-range
+
+  $( "#slider-range" ).slider({
+    range: true,
+    min: 0,
+    max: 1000,
+    values: [ 50, 750 ],
+    slide: function( event, ui ) {
+      $( "#amount-min" ).val( "$" + ui.values[ 0 ]  );
+      $( "#amount-max" ).val( "$" + ui.values[ 1 ] );
+    }
+  });
+    $( "#amount-min" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) );
+
+    $( "#amount-max" ).val( "$" + $( "#slider-range" ).slider( "values", 1 ) );
+
 });
 
 
@@ -104,4 +120,21 @@ $(document).ready(function() {
         modal.style.display = "none";
       }
     }
+
+
+    // btn filter
+
+    var btnFilter = document.querySelector('.btn__filter');
+    var grop = document.querySelector('.accordion-group');
+    //console.log(btnFilter);
+    btnFilter.addEventListener(
+      "click",
+      function() {
+        if (grop.classList.contains("active")){
+					grop.classList.remove("active");
+				} else {
+					grop.classList.add("active");
+				}
+      }
+    )
   });

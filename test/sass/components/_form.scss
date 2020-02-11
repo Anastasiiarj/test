@@ -202,3 +202,30 @@
     //@include block-shadow();
   }
 }
+
+// range slider
+
+.section-category .left-menu .accordion__content .form__price span {
+  background-color: $blue;
+  border-radius: 50%;
+  outline: none;
+  margin: 0;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+  background-color: $blue;
+}
+
+.ui-slider {
+  background-color: $gray-border;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -.4em;
+}
+
+#amount {
+  color: $gray-dark;
+}

@@ -35,6 +35,7 @@
       }
     }
   }
+
 }
 
 .section-category {
@@ -126,21 +127,26 @@
     .accordion-group {     
       background-color: $white;
       border-radius: 7px;
+      @include block-shadow();
+      @include breakpoint(lg) {
+        margin-bottom: 20px;
+      }
       @include breakpoint(md) {
-        display: none;
-        margin-top: 30px;
+        //display: none;
+        position: absolute;
+        top: 50px;
+        left: 0;
         transform: translateX(-100%);
+        z-index: 2;
+      }
+      &.active {
+        transform: translateX(0);
+        transition: transform 1s cubic-bezier(0, 0, 1, 1) 500ms;
+        @include block-shadow();
+        margin: 30px 15px 0;
       }
     }
-    @-webkit-keyframes animatetop {
-      from {top:-300px; opacity:0} 
-      to {top:0; opacity:1}
-    }
-  
-    @keyframes animatetop {
-        from {top:-300px; opacity:0}
-        to {top:0; opacity:1}
-    }
+
     .accordion {
       padding: 18px 20px 19px;
       border-bottom: 2px solid $gray-bg;
@@ -180,12 +186,23 @@
           height: auto;
           opacity: 1;
           padding-top: 30px;
+        }
 
-          // @include breakpoint(lg) {
-          //   overflow: hidden;
-          //   height: 0;
-          //   opacity: 1;
-          // }
+        .form__price {
+          .form__input {
+            max-width: 90px;
+            height: 40px;
+            margin: 10px 0;
+          }
+
+          .form__span {
+            margin: 0 11px;
+            background-color: transparent;
+          }
+
+          p {
+            margin-top: 20px;
+          }
         }
 
         .form-checkbox {
@@ -237,6 +254,7 @@
       display: none;
       @include breakpoint(md) {
         display: block;
+        border: 2px solid $gray-border;
       }
     }
   }
@@ -297,10 +315,20 @@
           &:before {
             @include sprite($grid-blue-icon);
           }
+          &:hover {
+            &:before {
+              @include sprite($grid-light-icon)
+            }
+          }
         }
         &_list {
           &:before {
             @include sprite($list-icon);
+          }
+          &:hover {
+            &:before {
+              @include sprite($list-blue-icon)
+            }
           }
         }
       }
@@ -424,17 +452,6 @@
       justify-content: center;
       align-items: center;
       margin-bottom: 20px;
-
-      li {
-        position: relative;
-        cursor: pointer;
-
-        &:before {
-          content: '';
-          display: inline-block;
-          @include sprite($star-yellow);
-        }
-      }
       
       span {
         font-size: 12px;
@@ -447,6 +464,29 @@
       @include flexbox();
       li {
         padding: 0 2px;
+      }
+    }
+
+    &__star {
+      position: relative;
+      cursor: pointer;
+
+      &:before {
+        content: '';
+        display: inline-block;
+        @include sprite($star-yellow);
+      }
+
+      &_half {
+        &:before {
+          @include sprite($star-half);
+        }
+      }
+
+      &_border {
+        &:before {
+          @include sprite($star-border);
+        }
       }
     }
 
@@ -499,6 +539,9 @@
 
       strong {
         padding: 0 20px;
+        @include breakpoint(md) {
+          display: none;
+        }
       }
 
       &:before,

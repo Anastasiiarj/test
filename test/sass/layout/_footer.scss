@@ -32,6 +32,9 @@
           font-size: 16px;
           color: $gray-dark;
           padding: 5px 30px;
+          @include breakpoint(lg) {
+            padding: 5px 10px;
+          }
           &:hover {
             color: $gray-light;
           }
